@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum Team { Team1, Team2, None }
+public enum MyTeam { Team1, Team2, None }
 
 public class CharacterController : MonoBehaviour 
 {
-	public Team myTeam = MyTeam.Team1;
+	public MyTeam myTeam = MyTeam.Team1;
 
 	public enum inputState { None, WalkUp, WalkDown, WalkLeft, WalkRight, Carry, Throw, Attack }
 
@@ -13,19 +13,6 @@ public class CharacterController : MonoBehaviour
 
 	[HideInInspector] public enum facing { Up, Down, Left, Right }
 	[HideInInspector] public facing faceDirection;
-
-	/*
-	[HideInInspector] public enum moving { Up, Down, Left, Right, None }
-	[HideInInspector] public moving moveDirection;
-	
-	[HideInInspector] public bool isUp;
-	[HideInInspector] public bool isDown;
-	[HideInInspector] public bool isLeft;
-	[HideInInspector] public bool isRight;
-	[HideInInspector] public bool isCarry;
-	[HideInInspector] public bool isThrow;
-	[HideInInspector] public bool isAttack;
-	*/
 
 	[HideInInspector] public bool alive = true;
 	[HideInInspector] public Vector3 spawnPosition;
@@ -42,7 +29,7 @@ public class CharacterController : MonoBehaviour
 	private float throwVel = 3.0f; // Velocity of object when thrown
 	
 	private float moveVel;
-	private float tVel = 0.0f;
+	private Vector2 tVel = new Vector2 ();
 
 	protected bool hasObject = false;
 	protected string team = "";
@@ -65,14 +52,14 @@ public class CharacterController : MonoBehaviour
 
 	public virtual void UpdateMovement ()
 	{
-		// if game over || dead, return
+		// if game over || dead, return;
 
 
 	}
 
 	public virtual void UpdatePhysics ()
 	{
-		// if game over || dead, return
+		// if game over || dead, return;
 
 		physVel = Vector2.zero;
 
@@ -96,6 +83,50 @@ public class CharacterController : MonoBehaviour
 		{
 			physVel.x = moveVel;
 		}
+
+		// Throw an object
+		if (currentInputState == inputState.Throw && hasObject == true)
+		{
+			if (faceDirection == facing.Up)
+				tVel.y = throwVel;
+
+			if (faceDirection == facing.Down)
+				tVel.y = -throwVel;
+
+			if (faceDirection == facing.Left)
+				tVel.x = -throwVel;
+
+			if (faceDirection == facing.Right)
+				tVel.x = throwVel;
+
+//			GameManager.object.ThrowObject (tVel);
+			RemoveObject ();
+		}
+	}
+
+	public virtual void PickUpObject ()
+	{
+		hasObject = true;
+		moveVel = walkVel;
+
+//		GameManager.object.PickUp (_transform);
+	}
+
+	void RemoveObject ()
+	{
+		hasObject = false;
+		moveVel = runVel;
+	}
+
+	void AddCoins ()
+	{
+		if (myTeam == MyTeam.Team1)
+			team = "Team1";
+		else
+			team = "Team2";
+
+		// Get amount from the Coin gameobject's script
+//		GameManager.scoreManager.AddCoins (team, amount);
 	}
 
 	// Update is called once per frame
