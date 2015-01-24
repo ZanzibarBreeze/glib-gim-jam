@@ -5,7 +5,7 @@ public class CharacterAnimation : MonoBehaviour
 {
 	private Transform _transform;
 	private Animator _animator;
-	private CharacterController character;
+	private Character character;
 
 	public enum anim { None, WalkUp, WalkDown, WalkLeft, WalkRight, StandUp, StandDown, StandLeft, StandRight, AttackUp, AttackDown, AttackLeft, AttackRight }
 
@@ -21,7 +21,7 @@ public class CharacterAnimation : MonoBehaviour
 		// Cache components to save on performance
 		_transform = transform;
 		_animator = this.GetComponent<Animator> ();
-		character = this.GetComponent<CharacterController> ();
+		character = this.GetComponent<Character> ();
 
 		// Assign the correct animation state depending on team
 		if (character.myTeam == MyTeam.Team1)
@@ -41,7 +41,7 @@ public class CharacterAnimation : MonoBehaviour
 		// if game over || dead, return;
 
 		// Walk Up
-		if (character.currentInputState == CharacterController.inputState.WalkUp && currentAnim != anim.WalkUp)
+		if (character.currentInputState == Character.inputState.WalkUp && currentAnim != anim.WalkUp)
 		{
 			currentAnim = anim.WalkUp;
 			_animator.SetInteger(_animState, 1);
@@ -49,7 +49,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Stand Up
-		if (character.currentInputState != CharacterController.inputState.WalkUp && currentAnim != anim.StandUp && character.faceDirection == CharacterController.facing.Up)
+		if (character.currentInputState != Character.inputState.WalkUp && currentAnim != anim.StandUp && character.faceDirection == Character.facing.Up)
 		{
 			currentAnim = anim.StandUp;
 			_animator.SetInteger (_animState, 0);
@@ -57,7 +57,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Walk Down
-		if (character.currentInputState == CharacterController.inputState.WalkDown && currentAnim != anim.WalkDown)
+		if (character.currentInputState == Character.inputState.WalkDown && currentAnim != anim.WalkDown)
 		{
 			currentAnim = anim.WalkDown;
 			_animator.SetInteger(_animState, 1);
@@ -65,7 +65,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 		
 		// Stand Down
-		if (character.currentInputState != CharacterController.inputState.WalkDown && currentAnim != anim.StandDown && character.faceDirection == CharacterController.facing.Down)
+		if (character.currentInputState != Character.inputState.WalkDown && currentAnim != anim.StandDown && character.faceDirection == Character.facing.Down)
 		{
 			currentAnim = anim.StandDown;
 			_animator.SetInteger (_animState, 0);
@@ -73,7 +73,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Walk Left
-		if (character.currentInputState == CharacterController.inputState.WalkLeft && currentAnim != anim.WalkLeft)
+		if (character.currentInputState == Character.inputState.WalkLeft && currentAnim != anim.WalkLeft)
 		{
 			currentAnim = anim.WalkLeft;
 			_animator.SetInteger(_animState, 1);
@@ -81,7 +81,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 		
 		// Stand Left
-		if (character.currentInputState != CharacterController.inputState.WalkLeft && currentAnim != anim.StandLeft && character.faceDirection == CharacterController.facing.Left)
+		if (character.currentInputState != Character.inputState.WalkLeft && currentAnim != anim.StandLeft && character.faceDirection == Character.facing.Left)
 		{
 			currentAnim = anim.StandLeft;
 			_animator.SetInteger (_animState, 0);
@@ -89,7 +89,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Walk Right
-		if (character.currentInputState == CharacterController.inputState.WalkRight && currentAnim != anim.WalkRight)
+		if (character.currentInputState == Character.inputState.WalkRight && currentAnim != anim.WalkRight)
 		{
 			currentAnim = anim.WalkRight;
 			_animator.SetInteger(_animState, 1);
@@ -97,7 +97,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 		
 		// Stand Right
-		if (character.currentInputState != CharacterController.inputState.WalkRight && currentAnim != anim.StandRight && character.faceDirection == CharacterController.facing.Right)
+		if (character.currentInputState != Character.inputState.WalkRight && currentAnim != anim.StandRight && character.faceDirection == Character.facing.Right)
 		{
 			currentAnim = anim.StandRight;
 			_animator.SetInteger (_animState, 0);
@@ -105,7 +105,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Attack Up
-		if (currentAnim != anim.AttackUp && character.faceDirection == CharacterController.facing.Up)
+		if (currentAnim != anim.AttackUp && character.faceDirection == Character.facing.Up)
 		{
 			currentAnim = anim.AttackUp;
 			_animator.SetInteger (_animState, 2);
@@ -113,7 +113,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Attack Down
-		if (currentAnim != anim.AttackDown && character.faceDirection == CharacterController.facing.Down)
+		if (currentAnim != anim.AttackDown && character.faceDirection == Character.facing.Down)
 		{
 			currentAnim = anim.AttackDown;
 			_animator.SetInteger (_animState, 2);
@@ -121,7 +121,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Attack Left
-		if (currentAnim != anim.AttackLeft && character.faceDirection == CharacterController.facing.Left)
+		if (currentAnim != anim.AttackLeft && character.faceDirection == Character.facing.Left)
 		{
 			currentAnim = anim.AttackLeft;
 			_animator.SetInteger (_animState, 2);
@@ -129,7 +129,7 @@ public class CharacterAnimation : MonoBehaviour
 		}
 
 		// Attack Right
-		if (currentAnim != anim.AttackRight && character.faceDirection == CharacterController.facing.Right)
+		if (currentAnim != anim.AttackRight && character.faceDirection == Character.facing.Right)
 		{
 			currentAnim = anim.AttackRight;
 			_animator.SetInteger (_animState, 2);

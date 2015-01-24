@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum MyTeam { Team1, Team2, None }
 
-public class CharacterController : MonoBehaviour 
+public class Character : MonoBehaviour 
 {
 	public MyTeam myTeam = MyTeam.Team1;
 

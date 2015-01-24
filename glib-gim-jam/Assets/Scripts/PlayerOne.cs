@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerOne : CharacterController 
+public class PlayerOne : Character 
 {
 
 	// Use this for initialization
@@ -87,7 +87,7 @@ public class PlayerOne : CharacterController
 		}
 	}
 
-	void OnTriggerEnter2D (Collision2D other)
+	void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
 		{
