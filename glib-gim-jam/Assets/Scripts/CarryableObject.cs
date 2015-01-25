@@ -9,11 +9,16 @@ public class CarryableObject : MonoBehaviour
 
 	private bool isBeingCarried = false;
 
+	private SpriteRenderer sprite;
+	public int sortingOrder = 0;
+
 	void Awake ()
 	{
 		_transform = transform;
 		_rigidbody = rigidbody2D;
 		_collider = collider2D;
+
+		sprite = GetComponent<SpriteRenderer> ();
 	}
 
 	// Use this for initialization
@@ -30,17 +35,19 @@ public class CarryableObject : MonoBehaviour
 
 	public void PickUp (Transform trans)
 	{
-		_transform.position = new Vector3 (trans.position.x, trans.position.y + 0.35f, trans.position.z);
+		_transform.position = new Vector3 (trans.position.x, trans.position.y + 1.0f, trans.position.z);
 
 		// Play a "pick up" sound
 
 		isBeingCarried = true;
+
+		sprite.sortingLayerName = "carried objects";
 	}
 
 	// Update object position so that it stays above the player's head when being carried
 	public void UpdateObjectFollowPos (Transform trans)
 	{
-		_transform.position = new Vector3 (trans.position.x, trans.position.y + 0.35f, trans.position.z);
+		_transform.position = new Vector3 (trans.position.x, trans.position.y + 1.0f, trans.position.z);
 	}
 
 	public IEnumerator SpawnObject ()
@@ -51,6 +58,8 @@ public class CarryableObject : MonoBehaviour
 	public void ThrowObject (Vector2 vel)
 	{
 		isBeingCarried = false;
+
+		sprite.sortingLayerName = "objects";
 
 		_rigidbody.AddForce (vel * 100.0f);
 	}
