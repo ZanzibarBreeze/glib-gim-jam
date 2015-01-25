@@ -62,6 +62,10 @@ TagManager:
     userID: 2
     uniqueID: 1002107841
     locked: 0
+  - name: Carried Items
+    userID: 7
+    uniqueID: 3981351039
+    locked: 0
   - name: roof
     userID: 1
     uniqueID: 1286120571
