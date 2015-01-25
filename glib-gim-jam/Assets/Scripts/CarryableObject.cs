@@ -10,7 +10,6 @@ public class CarryableObject : MonoBehaviour
 	private bool isBeingCarried = false;
 
 	private SpriteRenderer sprite;
-	public int sortingOrder = 0;
 
 	void Awake ()
 	{
@@ -35,7 +34,7 @@ public class CarryableObject : MonoBehaviour
 
 	public void PickUp (Transform trans)
 	{
-		_transform.position = new Vector3 (trans.position.x, trans.position.y + 1.0f, trans.position.z);
+		_transform.position = new Vector3 (trans.position.x, trans.position.y, trans.position.z);
 
 		// Play a "pick up" sound
 
@@ -47,7 +46,7 @@ public class CarryableObject : MonoBehaviour
 	// Update object position so that it stays above the player's head when being carried
 	public void UpdateObjectFollowPos (Transform trans)
 	{
-		_transform.position = new Vector3 (trans.position.x, trans.position.y + 1.0f, trans.position.z);
+		_transform.position = new Vector3 (trans.position.x, trans.position.y, trans.position.z);
 	}
 
 	public IEnumerator SpawnObject ()
