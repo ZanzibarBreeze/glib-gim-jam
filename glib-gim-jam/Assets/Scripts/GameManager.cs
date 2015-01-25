@@ -19,6 +19,6 @@ public class GameManager : MonoBehaviour
 		carryableObjects = GameObject.FindWithTag ("CarryableObject").GetComponent<CarryableObject> ();
 		scoreManager = gameObject.GetComponent<ScoreManager> ();
 		player1 = GameObject.Find ("Player1").GetComponent<PlayerOne> ();
-		player2 = GameObject.Find ("Player2").GetComponent<PlayerTwo> ();
+//		player2 = GameObject.Find ("Player2").GetComponent<PlayerTwo> ();
 	}
 }

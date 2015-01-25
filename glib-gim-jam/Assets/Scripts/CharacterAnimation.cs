@@ -9,6 +9,12 @@ public class CharacterAnimation : MonoBehaviour
 
 	public enum anim { None, WalkUp, WalkDown, WalkLeft, WalkRight, StandUp, StandDown, StandLeft, StandRight, AttackUp, AttackDown, AttackLeft, AttackRight }
 
+	private int idleDown = 1;
+	private int idleUp = 2;
+	private int idleSide = 3;
+	private int walk = 4;
+	private int attack = 5;
+
 	private anim currentAnim;
 
 	// Hash the animation state string to save performance
@@ -44,7 +50,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState == Character.inputState.WalkUp && currentAnim != anim.WalkUp)
 		{
 			currentAnim = anim.WalkUp;
-			_animator.SetInteger(_animState, 5);
+			_animator.SetInteger(_animState, walk);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 
@@ -52,7 +58,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState != Character.inputState.WalkUp && currentAnim != anim.StandUp && character.faceDirection == Character.facing.Up)
 		{
 			currentAnim = anim.StandUp;
-			_animator.SetInteger (_animState, 2);
+			_animator.SetInteger (_animState, idleUp);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 
@@ -60,7 +66,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState == Character.inputState.WalkDown && currentAnim != anim.WalkDown)
 		{
 			currentAnim = anim.WalkDown;
-			_animator.SetInteger(_animState, 5);
+			_animator.SetInteger(_animState, walk);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 		
@@ -68,7 +74,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState != Character.inputState.WalkDown && currentAnim != anim.StandDown && character.faceDirection == Character.facing.Down)
 		{
 			currentAnim = anim.StandDown;
-			_animator.SetInteger (_animState, 1);
+			_animator.SetInteger (_animState, idleDown);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 
@@ -76,7 +82,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState == Character.inputState.WalkLeft && currentAnim != anim.WalkLeft)
 		{
 			currentAnim = anim.WalkLeft;
-			_animator.SetInteger(_animState, 5);
+			_animator.SetInteger(_animState, walk);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 		
@@ -84,7 +90,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState != Character.inputState.WalkLeft && currentAnim != anim.StandLeft && character.faceDirection == Character.facing.Left)
 		{
 			currentAnim = anim.StandLeft;
-			_animator.SetInteger (_animState, 3);
+			_animator.SetInteger (_animState, idleSide);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 
@@ -92,7 +98,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState == Character.inputState.WalkRight && currentAnim != anim.WalkRight)
 		{
 			currentAnim = anim.WalkRight;
-			_animator.SetInteger(_animState, 5);
+			_animator.SetInteger(_animState, walk);
 			_transform.localScale = new Vector3 (-1, 1, 1);
 		}
 		
@@ -100,7 +106,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (character.currentInputState != Character.inputState.WalkRight && currentAnim != anim.StandRight && character.faceDirection == Character.facing.Right)
 		{
 			currentAnim = anim.StandRight;
-			_animator.SetInteger (_animState, 3);
+			_animator.SetInteger (_animState, idleSide);
 			_transform.localScale = new Vector3 (-1, 1, 1);
 		}
 
@@ -108,7 +114,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (currentAnim != anim.AttackUp && character.faceDirection == Character.facing.Up)
 		{
 			currentAnim = anim.AttackUp;
-			_animator.SetInteger (_animState, 6);
+			_animator.SetInteger (_animState, attack);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 
@@ -116,7 +122,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (currentAnim != anim.AttackDown && character.faceDirection == Character.facing.Down)
 		{
 			currentAnim = anim.AttackDown;
-			_animator.SetInteger (_animState, 6);
+			_animator.SetInteger (_animState, attack);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 
@@ -124,7 +130,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (currentAnim != anim.AttackLeft && character.faceDirection == Character.facing.Left)
 		{
 			currentAnim = anim.AttackLeft;
-			_animator.SetInteger (_animState, 6);
+			_animator.SetInteger (_animState, attack);
 			_transform.localScale = new Vector3 (1, 1, 1);
 		}
 
@@ -132,7 +138,7 @@ public class CharacterAnimation : MonoBehaviour
 		if (currentAnim != anim.AttackRight && character.faceDirection == Character.facing.Right)
 		{
 			currentAnim = anim.AttackRight;
-			_animator.SetInteger (_animState, 6);
+			_animator.SetInteger (_animState, attack);
 			_transform.localScale = new Vector3 (-1, 1, 1);
 		}
 	}

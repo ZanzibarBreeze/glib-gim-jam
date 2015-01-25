@@ -54,7 +54,7 @@ TagManager:
     userID: 4
     uniqueID: 4083544661
     locked: 0
-  - name: items
+  - name: objects
     userID: 3
     uniqueID: 526266907
     locked: 0
@@ -62,7 +62,7 @@ TagManager:
     userID: 2
     uniqueID: 1002107841
     locked: 0
-  - name: Carried Items
+  - name: carried objects
     userID: 7
     uniqueID: 3981351039
     locked: 0

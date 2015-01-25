@@ -60,12 +60,17 @@ public class PlayerTwo : Character
 			currentInputState = inputState.Attack;
 		}
 		
-		// Carry
-		if (Input.GetKeyDown (KeyCode.RightShift))
+//		// Carry
+//		if (Input.GetKeyDown (KeyCode.RightShift))
+//		{
+//			currentInputState = inputState.Carry;
+//		}
+
+		if (hasObject == true)
 		{
 			currentInputState = inputState.Carry;
 		}
-		
+
 		// Throw
 		if (Input.GetKeyDown (KeyCode.RightShift) && currentInputState == inputState.Carry)
 		{
@@ -77,7 +82,7 @@ public class PlayerTwo : Character
 	
 	void OnCollisionEnter2D (Collision2D other)
 	{
-		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
+		if (other.gameObject.CompareTag ("CarryableObject") && currentInputState != inputState.Carry)
 		{
 			PickUpObject ();
 		}
@@ -85,7 +90,7 @@ public class PlayerTwo : Character
 	
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
+		if (other.gameObject.CompareTag ("CarryableObject") && currentInputState != inputState.Carry)
 		{
 			PickUpObject ();
 		}

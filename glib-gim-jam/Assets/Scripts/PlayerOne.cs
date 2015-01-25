@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerOne : Character 
 {
 
+	private bool inPickUpRange = false;
+
 	// Use this for initialization
 	public override void Start () 
 	{
@@ -75,9 +77,15 @@ public class PlayerOne : Character
 //			currentInputState = inputState.Carry;
 //		}
 
+		if (hasObject == true)
+		{
+			currentInputState = inputState.Carry;
+		}
+
 		// Throw
 		if (Input.GetKeyDown (KeyCode.E) && currentInputState == inputState.Carry)
 		{
+			Debug.Log ("Throw");
 			currentInputState = inputState.Throw;
 		}
 
@@ -86,24 +94,20 @@ public class PlayerOne : Character
 
 	void OnCollisionEnter2D (Collision2D other)
 	{
-		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
+		if (other.gameObject.CompareTag ("CarryableObject") && currentInputState != inputState.Carry)
 		{
-			// Carry
-			if (Input.GetKeyDown (KeyCode.E))
-			{
-				currentInputState = inputState.Carry;
-				PickUpObject ();
-			}
+			PickUpObject ();
 		}
+
 	}
 
-//	void OnTriggerEnter2D (Collider2D other)
-//	{
-//		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
-//		{
-//			PickUpObject ();
-//		}
-//	}
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.gameObject.CompareTag ("CarryableObject") && currentInputState != inputState.Carry)
+		{
+			PickUpObject ();
+		}
+	}
 
 	public void Respawn ()
 	{

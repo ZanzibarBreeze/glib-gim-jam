@@ -30,7 +30,7 @@ public class CarryableObject : MonoBehaviour
 
 	public void PickUp (Transform trans)
 	{
-		_transform.position = new Vector3 (trans.position.x, trans.position.y, trans.position.z);
+		_transform.position = new Vector3 (trans.position.x, trans.position.y + 0.35f, trans.position.z);
 
 		// Play a "pick up" sound
 
@@ -40,7 +40,7 @@ public class CarryableObject : MonoBehaviour
 	// Update object position so that it stays above the player's head when being carried
 	public void UpdateObjectFollowPos (Transform trans)
 	{
-		_transform.position = new Vector3 (trans.position.x, trans.position.y, trans.position.z);
+		_transform.position = new Vector3 (trans.position.x, trans.position.y + 0.35f, trans.position.z);
 	}
 
 	public IEnumerator SpawnObject ()
@@ -52,6 +52,6 @@ public class CarryableObject : MonoBehaviour
 	{
 		isBeingCarried = false;
 
-		_rigidbody.AddForce (vel.x, vel.y, 0);
+		_rigidbody.AddForce (vel * 100.0f);
 	}
 }
