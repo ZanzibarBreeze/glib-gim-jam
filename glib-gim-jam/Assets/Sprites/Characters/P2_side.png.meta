@@ -1,7 +1,20 @@
 fileFormatVersion: 2
 guid: 35a51a88fd90d494e8f0282c8c34dfbc
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: P2_side_0
+    21300002: P2_side_1
+    21300004: P2_side_2
+    21300006: P2_side_4
+    21300008: P2_side_5
+    21300010: P2_side_6
+    21300012: P2_side_7
+    21300014: P2_side_8
+    21300016: P2_side_9
+    21300018: P2_side_10
+    21300020: P2_side_11
+    21300022: P2_side_12
+    21300024: P2_side_13
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +38,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +55,136 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: P2_side_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 538
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 538
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 536
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 374
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 376
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_6
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 374
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_7
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 374
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 230
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_10
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 231
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_11
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 231
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 136
+        height: 165
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: P2_side_13
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 44
+        width: 170
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
