@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: P1_front_4
+  m_Name: P1_Animations
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -20,6 +20,36 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &110212146
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: P1_Front_Attack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: f0fc8552a9a2c8e41a50459f0bdde407, type: 2}
+  m_ParentStateMachine: {fileID: 110755014}
+  m_Position: {x: 288, y: -12, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110224240
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: P1_Front_ArmsUpWalk
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 5988ea3b26c03874b9c2e507042d0874, type: 2}
+  m_ParentStateMachine: {fileID: 110755014}
+  m_Position: {x: 204, y: 120, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110255014
 State:
   m_ObjectHideFlags: 3
@@ -31,7 +61,22 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 6c2f82640e124a546a73040482211adc, type: 2}
   m_ParentStateMachine: {fileID: 110755014}
-  m_Position: {x: 50, y: 50, z: 0}
+  m_Position: {x: -144, y: 120, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110260410
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: P1_Front_Throw
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 499a078b3f5cb684db6e119c6c12e85f, type: 2}
+  m_ParentStateMachine: {fileID: 110755014}
+  m_Position: {x: -204, y: 0, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -45,6 +90,9 @@ StateMachine:
   m_DefaultState: {fileID: 110255014}
   m_States:
   - {fileID: 110255014}
+  - {fileID: 110260410}
+  - {fileID: 110212146}
+  - {fileID: 110224240}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}

@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: P2_front_4
+  m_Name: P2_Animations
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -31,7 +31,52 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: cf12bb277d87cd74ea7507de5bf70a26, type: 2}
   m_ParentStateMachine: {fileID: 110709346}
-  m_Position: {x: 50, y: 50, z: 0}
+  m_Position: {x: -168, y: 96, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110227668
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: P2_Front_ArmsUpWalk
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 2d023a4fad7c8644ab1c1ebe34a31baa, type: 2}
+  m_ParentStateMachine: {fileID: 110709346}
+  m_Position: {x: 228, y: 96, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110243466
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: P2_Front_Throw
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: a3290ea16d664a248b2f2016a461632d, type: 2}
+  m_ParentStateMachine: {fileID: 110709346}
+  m_Position: {x: -216, y: -24, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110247190
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: P2_Front_Attack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 070b54fd52cd3ad478dd5cf1906a6e4a, type: 2}
+  m_ParentStateMachine: {fileID: 110709346}
+  m_Position: {x: 276, y: -24, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -45,6 +90,9 @@ StateMachine:
   m_DefaultState: {fileID: 110209346}
   m_States:
   - {fileID: 110209346}
+  - {fileID: 110227668}
+  - {fileID: 110243466}
+  - {fileID: 110247190}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions: {}
