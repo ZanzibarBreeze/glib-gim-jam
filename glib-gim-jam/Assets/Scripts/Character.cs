@@ -99,9 +99,12 @@ public class Character : MonoBehaviour
 			if (faceDirection == facing.Right)
 				tVel.x = throwVel;
 
-//			GameManager.object.ThrowObject (tVel);
+			GameManager.carryableObjects.ThrowObject (tVel);
 			RemoveObject ();
 		}
+
+		// Move the player
+		_rigidbody.velocity = new Vector2 (physVel.x, physVel.y);
 	}
 
 	public virtual void PickUpObject ()
@@ -109,7 +112,7 @@ public class Character : MonoBehaviour
 		hasObject = true;
 		moveVel = walkVel;
 
-//		GameManager.object.PickUp (_transform);
+		GameManager.carryableObjects.PickUp (_transform);
 	}
 
 	void RemoveObject ()
