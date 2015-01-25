@@ -52,6 +52,6 @@ public class CarryableObject : MonoBehaviour
 	{
 		isBeingCarried = false;
 
-		_rigidbody.velocity = new Vector3 (vel.x, vel.y, 0);
+		_rigidbody.AddForce (vel.x, vel.y, 0);
 	}
 }

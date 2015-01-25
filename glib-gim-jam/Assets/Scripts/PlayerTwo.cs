@@ -8,7 +8,9 @@ public class PlayerTwo : Character
 	public override void Start () 
 	{
 		base.Start ();
-		
+
+		myTeam = MyTeam.Team2;
+
 		// Grab player position on start and use it as the spawn position for subsequent rounds
 		spawnPosition = _transform.position;
 	}

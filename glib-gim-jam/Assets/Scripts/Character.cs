@@ -34,8 +34,6 @@ public class Character : MonoBehaviour
 	protected bool hasObject = false;
 	protected string team = "";
 
-	// Raycast-related variables
-	private RaycastHit2D hit;
 	private Vector2 physVel = new Vector2 ();
 
 	public virtual void Awake ()
@@ -54,6 +52,11 @@ public class Character : MonoBehaviour
 	{
 		// if game over || dead, return;
 
+		// If player is carrying an object, then have it follow the player
+		if (hasObject == true)
+		{
+			GameManager.carryableObjects.UpdateObjectFollowPos (_transform);
+		}
 
 	}
 

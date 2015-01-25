@@ -9,6 +9,8 @@ public class PlayerOne : Character
 	{
 		base.Start ();
 
+		myTeam = MyTeam.Team1;
+
 		// Grab player position on start and use it as the spawn position for subsequent rounds
 		spawnPosition = _transform.position;
 	}
@@ -19,6 +21,7 @@ public class PlayerOne : Character
 		// Reload the scene and reset scores
 		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.R))
 		{
+			Debug.Log ("Reset");
 			Application.LoadLevel (0);
 		}
 
@@ -27,11 +30,13 @@ public class PlayerOne : Character
 
 	public void FixedUpdate ()
 	{
+		Debug.Log (currentInputState);
+
 		// inputState is none unless one of the movement keys are pressed
 		currentInputState = inputState.None;
 
 		// Move Up
-		if (Input.GetKey (KeyCode.W))
+		if (Input.GetKey (KeyCode.W) && currentInputState != inputState.WalkDown)
 		{
 			currentInputState = inputState.WalkUp;
 			faceDirection = facing.Up;
@@ -45,7 +50,7 @@ public class PlayerOne : Character
 		}
 
 		// Move Left
-		if (Input.GetKey (KeyCode.A))
+		if (Input.GetKey (KeyCode.A) && currentInputState != inputState.WalkRight)
 		{
 			currentInputState = inputState.WalkLeft;
 			faceDirection = facing.Left;
@@ -59,16 +64,16 @@ public class PlayerOne : Character
 		}
 
 		// Attack
-		if (Input.GetKeyDown (KeyCode.Q))
+		if (Input.GetKeyDown (KeyCode.Q) && currentInputState != inputState.Carry)
 		{
 			currentInputState = inputState.Attack;
 		}
 
-		// Carry
-		if (Input.GetKeyDown (KeyCode.E))
-		{
-			currentInputState = inputState.Carry;
-		}
+//		// Carry
+//		if (Input.GetKeyDown (KeyCode.E))
+//		{
+//			currentInputState = inputState.Carry;
+//		}
 
 		// Throw
 		if (Input.GetKeyDown (KeyCode.E) && currentInputState == inputState.Carry)
@@ -83,17 +88,22 @@ public class PlayerOne : Character
 	{
 		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
 		{
-			PickUpObject ();
+			// Carry
+			if (Input.GetKeyDown (KeyCode.E))
+			{
+				currentInputState = inputState.Carry;
+				PickUpObject ();
+			}
 		}
 	}
 
-	void OnTriggerEnter2D (Collider2D other)
-	{
-		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
-		{
-			PickUpObject ();
-		}
-	}
+//	void OnTriggerEnter2D (Collider2D other)
+//	{
+//		if (other.gameObject.CompareTag ("CarryableObject") && hasObject == false)
+//		{
+//			PickUpObject ();
+//		}
+//	}
 
 	public void Respawn ()
 	{
