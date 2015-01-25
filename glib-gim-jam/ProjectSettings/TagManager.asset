@@ -41,3 +41,27 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: forest
+    userID: 6
+    uniqueID: 54624027
+    locked: 0
+  - name: shopbase
+    userID: 5
+    uniqueID: 4124597551
+    locked: 0
+  - name: floor decor
+    userID: 4
+    uniqueID: 4083544661
+    locked: 0
+  - name: items
+    userID: 3
+    uniqueID: 526266907
+    locked: 0
+  - name: characters
+    userID: 2
+    uniqueID: 1002107841
+    locked: 0
+  - name: roof
+    userID: 1
+    uniqueID: 1286120571
+    locked: 0
